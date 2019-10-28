@@ -361,7 +361,7 @@ class Buy extends Component {
 
     const firstPrecision = Math.pow(10, exchangeData.fPrecision || 0);
     const secondPrecision = Math.pow(10, exchangeData.sPrecision || 0);
-
+    console.log(1123, firstPrecision, secondPrecision);
     const data = {
       _user: account.address,
       _tokenA: tokenA,
@@ -376,7 +376,7 @@ class Buy extends Component {
     let id;
     try {
       id = await TW.buyByContract(data);
-
+      console.log(11234, data, id);
       if (id) {
         this.setState({
           modal: (
@@ -539,6 +539,7 @@ class Buy extends Component {
         // }, 1000);
       }
     } catch (error) {
+      console.log(error);
       this.setState({
         buttonLoading: false
       });

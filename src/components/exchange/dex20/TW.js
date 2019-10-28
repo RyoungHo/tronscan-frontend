@@ -1,16 +1,16 @@
 class ApiTW {
   constructor() {
     // **** online
-    this.contractAddress = "TSMbPm5mUsaTDSEjHCd55ZJaib3Ysvjyc5";
-    this.contractAddress10 = "THnCkTX1GfDArAuyzzv2nGpDt4vChm8t2e";
-    this.contractAddrUsdt20 = "TEpC1DGvDdfrDf83JZDUzdNZydeHz9w21H"; //'TWe4z3uRvUoG9VBgoC8iSgHRtvxa9MJJPv'
-    this.contractAddrUsdt10 = "TCXvoCbb2ejaYHBRKKjtnkTCp8DFKTrLTj";
+    // this.contractAddress = "TSMbPm5mUsaTDSEjHCd55ZJaib3Ysvjyc5";
+    // this.contractAddress10 = "THnCkTX1GfDArAuyzzv2nGpDt4vChm8t2e";
+    // this.contractAddrUsdt20 = "TEpC1DGvDdfrDf83JZDUzdNZydeHz9w21H"; //'TWe4z3uRvUoG9VBgoC8iSgHRtvxa9MJJPv'
+    // this.contractAddrUsdt10 = "TCXvoCbb2ejaYHBRKKjtnkTCp8DFKTrLTj";
 
     // **** test
-    // this.contractAddress = "TVpJQDbuuSwykezHDxGSK6wNhMUK1tXHzm";
-    // this.contractAddress10 = "TJyrPWWP3sit856yTCJrd3cg2Uo82aZ7JN";
-    // this.contractAddrUsdt20 = "TRxMaG7CwSfZdfho9KXtayDJUQEvvoCeKo"; //'TWe4z3uRvUoG9VBgoC8iSgHRtvxa9MJJPv'
-    // this.contractAddrUsdt10 = "TCXvoCbb2ejaYHBRKKjtnkTCp8DFKTrLTj";
+    this.contractAddress = "TVpJQDbuuSwykezHDxGSK6wNhMUK1tXHzm";
+    this.contractAddress10 = "TVx9uwGT5ggZuv9mthofj9Vw6otYtZ1TNn";
+    this.contractAddrUsdt20 = "TRxMaG7CwSfZdfho9KXtayDJUQEvvoCeKo"; //'TWe4z3uRvUoG9VBgoC8iSgHRtvxa9MJJPv'
+    this.contractAddrUsdt10 = "TJyrPWWP3sit856yTCJrd3cg2Uo82aZ7JN";
   }
 
   /**
@@ -100,6 +100,7 @@ class ApiTW {
   }) {
     let transactionID;
     const _c = await this.getContract(tronWeb, _pairType);
+    console.log(11235, _c);
     if (_pairType === 1) {
       transactionID = _c
         .buyOrder(
@@ -109,7 +110,8 @@ class ApiTW {
           Math.round(_price)
         )
         .send({
-          callValue: Math.round(_amountB)
+          callValue: Math.round(_amountB),
+          feeLimit: 10000000
         });
     } else if (_pairType === 2) {
       let allowAmount = false;
@@ -137,7 +139,8 @@ class ApiTW {
           Math.round(_price)
         )
         .send({
-          callValue: Math.round(_amountB)
+          callValue: Math.round(_amountB),
+          feeLimit: 10000000
         });
     } else if (_pairType === 3 || _pairType === 4) {
       let allowAmount = await this.authorization(
@@ -156,7 +159,9 @@ class ApiTW {
           Math.round(_amountB),
           Math.round(_price)
         )
-        .send();
+        .send({
+          feeLimit: 10000000
+        });
     }
     return transactionID;
     // let allowAmount = false;
