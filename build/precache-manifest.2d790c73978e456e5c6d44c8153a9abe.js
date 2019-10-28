@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/editor.worker.js"
   },
   {
-    "revision": "4435455904986d0a17051e603d13b165",
+    "revision": "4ab498c08ce810ef4bec614b3f9f3231",
     "url": "/index.html"
   },
   {
@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/NodeMap.aab5afec.chunk.css"
   },
   {
-    "revision": "bfed142b83dfb1994ee5",
+    "revision": "05801000db5477e95cd1",
     "url": "/static/css/main.adf26157.chunk.css"
   },
   {
@@ -352,8 +352,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/WalletWizard.cd9df4a7.chunk.js"
   },
   {
-    "revision": "bfed142b83dfb1994ee5",
-    "url": "/static/js/main.ca474650.chunk.js"
+    "revision": "05801000db5477e95cd1",
+    "url": "/static/js/main.bf4f0705.chunk.js"
   },
   {
     "revision": "82593eb326267208fcd5",
